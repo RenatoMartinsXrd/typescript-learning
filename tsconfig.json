@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", //Tipo de javascript que vai ser compilado
+    "strict": true
+  }
+}
