@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "target": "ESNext", //Tipo de javascript que vai ser compilado
-    "strict": true
+    "strict": true,
+    "noImplicitAny": true // Se não definirmos o tipo de dado, inclusive o any, nao sera any implicitamente
+
+    //NoImplicityAny -> Ja incluso no strict
   }
 }
