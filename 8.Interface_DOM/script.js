@@ -1,13 +1,25 @@
 "use strict";
-// const links = document.querySelectorAll('.link') as NodeListOf<HTMLElement>
-// links.forEach((value) => {
-//   value.style.color = 'black'
-//   value.style.border = '1px solid red'
-// })
-const links = document.querySelectorAll('.link');
-links.forEach((value) => {
-    if (value instanceof HTMLElement) {
-        value.style.color = 'black';
-        value.style.border = '1px solid red';
+const btnMenu = document.querySelector('#btn-mobile');
+const navMenu = document.querySelector('#nav');
+function toggleMenu() {
+    if (navMenu instanceof HTMLElement) {
+        navMenu.classList.toggle('active');
     }
+}
+function toggleAriaExpanded() {
+    if (btnMenu) {
+        btnMenu.ariaExpanded = btnMenu.ariaExpanded === 'true' ? 'false' : 'true';
+    }
+}
+function toggleAriaLabel() {
+    if (!btnMenu || !navMenu || !(navMenu instanceof HTMLElement))
+        return;
+    btnMenu.ariaExpanded = navMenu.classList?.contains('active')
+        ? 'Fechar Menu'
+        : 'Abrir Menu';
+}
+btnMenu?.addEventListener('pointerdown', () => {
+    toggleMenu();
+    toggleAriaExpanded();
+    toggleAriaLabel();
 });
